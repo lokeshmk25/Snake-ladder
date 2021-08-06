@@ -17,7 +17,8 @@ public class snakeladder {
             int checkoption;
             checkoption = dice.nextInt(3);
             System.out.println("number is " + checkoption);
-
+            int needToWin=WINNING_POSITION-startposition;
+            if(needToWin>=dicenumber){
             switch (checkoption) {
                 case 0:
                     System.out.println("Noplay");
@@ -30,7 +31,12 @@ public class snakeladder {
                 default:
                     System.out.println("ladder :" + "-" + dicenumber);
                     startposition -= dicenumber;
-                    break;
+
+                    if (startposition < 0) {
+                        startposition = 0;
+                        System.out.println("star again");
+                    }
+            }
             }
         }System.out.println( playername+ "wins the game");
     }
